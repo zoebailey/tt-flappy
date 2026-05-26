@@ -20,6 +20,16 @@ module tt_um_example (
   assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
   assign uio_out = 0;
   assign uio_oe  = 0;
+  
+  // inputs
+  assign button_flap = ui_in[0];
+  assign button_start = ui_in[1];
+  assign debug_mode = ui_in[2];
+
+  // outputs
+  assign uo_out[0] = horizontal_sync;
+  assign uo_out[1] = vertical_sync;
+  assign uo_out[2] = video;
 
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, clk, rst_n, 1'b0};
